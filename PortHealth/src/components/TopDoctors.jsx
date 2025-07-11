@@ -7,20 +7,23 @@ const TopDoctors = () => {
   const navigate = useNavigate()
    const {doctors} = useContext(AppContext)
   return (
-    <div className='flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10'>
+    <div id='speciality' className='flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10'>
         <h1 className='text-3xl font-medium'>Available Providers</h1>
         {/* <p className='sm:w-1/3 text-center text-sm'>Simple browse through our extensive list of trusted doctors</p> */}
         <div className='w-full grid grid-cols-auto gap-4 pt-5 gap-y-6 px-3 sm:px-0'>
           {doctors.slice(0,10).map((item,index)=>(
               <div 
                onClick={()=>navigate(`/appointment/${item._id}`)}
-               className='border border-blue-200 rounded-xl overflow-idden cursor-pointer hover:translate-y-[-10px] transition-all duration-500'
+               className='border rounded-xl overflow-idden cursor-pointer hover:translate-y-[-10px] transition-all duration-500'
                key={index}
               >
-                 <img className='bg-blue-50' src={item.image} alt=''/>
+                 <img 
+                //  className='bg-gray-50'
+                // className='bg-blue-50'
+                  src={item.image} alt=''/>
                  {/* <div className='flex'> */}
                      
-                  <div className='p-4'>
+                  <div   className='p-4 bg-gray-50 rounded-b-xl'>
                     <div className='flex items-center gap-2 text-sm text-center text-green-500'>
                         <p className='w-2 h-2 bg-green-500 rounded-full'></p><p>Available</p>        
                     </div>

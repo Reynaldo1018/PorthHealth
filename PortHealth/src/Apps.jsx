@@ -11,6 +11,16 @@ import Appointment from './pages/Appointment'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
+//npx expo start --web  /try to use this command to run the app in web mode
+//npx expo export --platform web  /create an build the web app
+//npx expo export --platform web
+
+
+
+// Publish command to deploy the app on web
+// eas deploy --prod  /deploy the app in production mode
+// eas deploy --prod
+
 
 const App = () => {
   return (
