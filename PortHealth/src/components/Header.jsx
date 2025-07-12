@@ -8,7 +8,7 @@ const Header = () => {
         {/* left side */}
         <div className={style.secondViewStyle}>
            <p className={firstP}>
-            Book Appointment <br /> With the best providers
+            Book Appointment <br /> with highly-rated passionate board certified family nurse practitioner
            </p>  
            <div className={thirdViewStyle}>
             <img className='w-28' src={assets.group_profiles} alt=''/>
@@ -24,9 +24,9 @@ const Header = () => {
 
         {/* right side */}
          <div className='md:w-1/2 relative'>
-            <img
+            {/* <img
              className={thirdImage}
-             src={assets.header_img} alt=''/>
+             src={assets.header_img} alt=''/> */}
          </div>
         <div>
 
