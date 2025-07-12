@@ -21,13 +21,34 @@ const Appointment = () => {
 
   // Generate slots for the selected date
   const getAvailableSlots = (dateStr) => {
-    let currentDate = new Date(dateStr);
-    let endTime = new Date(dateStr);
-    endTime.setHours(24, 0, 0, 0);
+    // Parse date string as local date
+    const [year, month, day] = dateStr.split('-').map(Number);
+    let currentDate = new Date(year, month - 1, day, 8, 0, 0, 0); // 8:00 AM local
+    let endTime = new Date(year, month - 1, day, 24, 0, 0, 0);    // midnight local
 
-    // Set start time (e.g., 8:00 AM)
-    currentDate.setHours(8);
-    currentDate.setMinutes(0);
+    const now = new Date();
+    // Compare only the date part, not the full Date object
+    const isToday =
+      year === now.getFullYear() &&
+      month - 1 === now.getMonth() &&
+      day === now.getDate();
+
+    if (isToday) {
+      let nextHour = now.getHours();
+      let nextMinute = now.getMinutes();
+
+      if (nextHour < 8) {
+        currentDate.setHours(8, 0, 0, 0);
+      } else {
+        if (nextMinute === 0) {
+          currentDate.setHours(nextHour, 0, 0, 0);
+        } else if (nextMinute <= 30) {
+          currentDate.setHours(nextHour, 30, 0, 0);
+        } else {
+          currentDate.setHours(nextHour + 1, 0, 0, 0);
+        }
+      }
+    }
 
     let timeSlots = [];
     while (currentDate < endTime) {
@@ -38,6 +59,7 @@ const Appointment = () => {
       });
       currentDate.setMinutes(currentDate.getMinutes() + 30);
     }
+
     setDocSlots([timeSlots]);
   };
 
@@ -86,6 +108,7 @@ const Appointment = () => {
             type="date"
             id="booking-date"
             value={selectedDate}
+            min={new Date().toISOString().split('T')[0]} // Prevent past dates
             onChange={e => setSelectedDate(e.target.value)}
             className="border rounded px-2 py-1"
           />

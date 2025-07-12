@@ -18,6 +18,7 @@ const TopDoctors = () => {
                key={index}
               >
                  <img 
+                  className='rounded-t-xl'
                 //  className='bg-gray-50'
                 // className='bg-blue-50'
                   src={item.image} alt=''/>
