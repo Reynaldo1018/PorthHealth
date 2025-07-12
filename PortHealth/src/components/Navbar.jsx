@@ -1,4 +1,3 @@
-
 import { NavLink, useNavigate } from 'react-router-dom'
  import {assets} from '../assets/assets'
 import { caButtonStyle, classhr, profileOptions } from '../const'
@@ -16,6 +15,11 @@ const Navbar = () => {
      >
         {/* <h1>PortHealth</h1> */}
       <img onClick={()=>navigate('/')} className='w-44 cursor-pointer' src={assets.logo} alt=''/>
+      {/* <h1 className='text-primary text-xl'>
+        PortHealth Tele
+      </h1> */}
+
+
         <ul className='hidden md:flex items-start gap-5 font-medium'>
             <NavLink to='/'>
                 <li className='py-1'>Home</li>

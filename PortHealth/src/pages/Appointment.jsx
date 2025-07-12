@@ -38,7 +38,7 @@ const Appointment = () => {
 
 
       // setting hours
-      if (today.getDate()){
+      if (today.getDate() === currentDate.getDate()){
         currentDate.setHours(currentDate.getHours() > 10 ? currentDate.getHours() + 1 : 8 )
         currentDate.setMinutes(currentDate.getMinutes() > 30 ? 30 : 0)
       } else {
@@ -122,13 +122,13 @@ return docInfo && (
         <div className='flex gap-3 item-center w-full over-flow-x-scroll mt-4'>
           {
             docSlots.length && docSlots.map((item,index)=>(
-               <di 
+               <div 
                 onClick={()=> setSlotIndex(index)}
                 className={`text-center py-6 min-w-16 rounded-full curso-pointer ${slotIndex === index ? 'bg-primary text-white' : 'border border-gray-200' }`} key={index}>
                 <p>{item[0] && dayOfWeek[item[0].datetime.getDay()]}</p>
                 <p>{item[0] && item[0].datetime.getDate()} </p>
 
-               </di>
+               </div>
             ))
           }
         </div>
@@ -145,7 +145,7 @@ return docInfo && (
       </div>
 
       {/* Listing Related Doctors */}
-      <RelatedDoctors docId={docId} speciality={docInfo.speciality} />
+      {/* <RelatedDoctors docId={docId} speciality={docInfo.speciality} /> */}
   
     </div>
   );
