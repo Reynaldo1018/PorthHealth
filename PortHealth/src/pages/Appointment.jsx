@@ -62,7 +62,7 @@ const Appointment = () => {
          })
 
          // increase current time by 30 minutes
-         currentDate.setMinutes(currentDate.getMinutes() + 30)
+         currentDate.setMinutes(currentDate.getMinutes() + 15)
 
       }
 
