@@ -86,20 +86,20 @@ export const specialityData = [
 ]
 
 export const doctors = [
-    {
-        _id: 'doc1',
-        name: 'Odelaidys Portela',
-        image: doc1,
-        speciality: 'General physician',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: '',
-        fees: 50,
-        // address: {
-        //     line1: '17th Cross, Richmond',
-        //     line2: 'Circle, Ring Road, London'
-        // }
-    },
+    // {
+    //     _id: 'doc1',
+    //     name: 'Odelaidys Portela',
+    //     image: doc1,
+    //     speciality: 'General physician',
+    //     degree: 'MBBS',
+    //     experience: '4 Years',
+    //     about: '',
+    //     fees: 50,
+    //     // address: {
+    //     //     line1: '17th Cross, Richmond',
+    //     //     line2: 'Circle, Ring Road, London'
+    //     // }
+    // },
     {
         _id: 'doc2',
         name: 'Heather Portela',
