@@ -78,7 +78,7 @@ const Appointment = () => {
 
 
       {/* Booking slots */}
-      <div className='sm:ml-72 sm:pl-4 mt-4 font-medium text-gray-700'>
+      <div className='sm:ml-72 sm:pl-4 mt-4 font-medium text-gray-500'>
         <p>Booking slots</p>
         <div className='mb-4'>
           <label htmlFor="booking-date" className="mr-2 font-medium">Choose a date:</label>

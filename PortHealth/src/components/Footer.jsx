@@ -7,7 +7,13 @@ const Footer = () => {
         <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
             {/*  --- Left Section */}
             <div>
-                <img className='mb-5 5 w-40' src={assets.logo} alt=''/>
+                {/* <img className='mb-5 5 w-40' src={assets.logo} alt=''/> */}
+                <h1 
+                onClick={() => navigate('/')} 
+                className='text-primary text-3xl font-bold cursor-pointer'
+                >
+                PortHealth Tele
+               </h1>
                 <p className='w-full md:w-2/3 text-gray-600 leading-6'>Company laws right</p>
 
             </div>

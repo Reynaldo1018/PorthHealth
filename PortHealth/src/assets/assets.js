@@ -16,7 +16,7 @@ import upload_icon from './upload_icon.png'
 import stripe_logo from './stripe_logo.png'
 //import razorpay_logo from './razorpay_logo.png'
 import doc1 from './doc11.png'
-import doc2 from './doc2.png'
+import doc2 from './doc1.png'
 import doc3 from './doc3.png'
 //import doc4 from './doc4.png'
 import doc5 from './doc5.png'
@@ -95,24 +95,24 @@ export const doctors = [
         experience: '4 Years',
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
-        address: {
-            line1: '17th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+        // address: {
+        //     line1: '17th Cross, Richmond',
+        //     line2: 'Circle, Ring Road, London'
+        // }
     },
     {
         _id: 'doc2',
         name: 'Heather Portela',
         image: doc2,
-        speciality: 'Gynecologist',
+        speciality: 'Urgent Care',
         degree: 'FNP-BC',
         experience: '13 Years',
-        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 60,
-        address: {
-            line1: '27th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+        about: 'Hello. My name is Heather Lopez. I am a board-certified family nurse practitioner. I have been in health care basically my entire adult life. I started out as a volunteer which quickly led me onto the path to nurse practitioner school. I first became a nurse technician on a cardiac floor, then an RN that worked on a medical-surgical unit. I then spent 6-7 years working in different emergency rooms. I finished nurse practitioner school (while growing a family) and often took jobs that catered to my beloved growing family. I have worked doing home visits that focused on transitional care and primary care, did travel contracts and full-time humanitarian work on or with the border or border control efforts. I took care of my patients with love and compassion, and it was an honor to serve there. While I was there where I did emergency response, urgent care, adult and pediatric primary care and many initial assessments. I moved away from there and because of the moves I have worked in aesthetics and landed doing telehealth where I focus on urgent care, weight loss and primary care- the kinds that are appropriate via telehealth. That leads me here, writing you to tell you about this business. While working telehealth my patients have only left me perfect 5-star reviews (I can prove it) because I do not let money be the motivator and I have a passion for treating people how I would like to be treated. If I can help you please schedule an appointment during my open availability.',
+        fees: 47,
+        // address: {
+        //     line1: '27th Cross, Richmond',
+        //     line2: 'Circle, Ring Road, London'
+        // }
     },
     // {
     //     _id: 'doc3',

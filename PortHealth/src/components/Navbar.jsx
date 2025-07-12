@@ -14,29 +14,31 @@ const Navbar = () => {
      
      >
         {/* <h1>PortHealth</h1> */}
-      <img onClick={()=>navigate('/')} className='w-44 cursor-pointer' src={assets.logo} alt=''/>
-      {/* <h1 className='text-primary text-xl'>
+      {/* <img onClick={()=>navigate('/')} className='w-44 cursor-pointer' src={assets.logo} alt=''/> */}
+       <h1 
+        onClick={() => navigate('/')} 
+        className='text-primary text-3xl font-bold cursor-pointer'
+       >
         PortHealth Tele
-      </h1> */}
-
+      </h1>
 
         <ul className='hidden md:flex items-start gap-5 font-medium'>
-            <NavLink to='/'>
+            {/* <NavLink to='/'>
                 <li className='py-1'>Home</li>
                 <hr className= {classhr}/>
-            </NavLink>
-            <NavLink to='/doctors'>
+            </NavLink> */}
+            {/* <NavLink to='/doctors'>
                 <li className='py-1'>All Doctors</li>
                 <hr className= {classhr}/>
-            </NavLink>
-            <NavLink to='/about'>
+            </NavLink> */}
+            {/* <NavLink to='/about'>
                 <li className='py-1'>About</li>
                  <hr className= {classhr}/>
-            </NavLink>
-            <NavLink to='/contact'>
+            </NavLink> */}
+            {/* <NavLink to='/contact'>
                 <li className='py-1'>Contacts</li>
                 <hr className= {classhr}/>
-            </NavLink>
+            </NavLink> */}
         </ul>
         <div className='flex items-center gap-4'>
             {
