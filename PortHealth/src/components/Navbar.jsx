@@ -56,11 +56,11 @@ const Navbar = () => {
                         <div className='min-w-48 bg-white rounded flex flex-col gap-4 p-4 border-2 '>    
                              <p 
                               className={profileOptions}
-                              onClick={()=>navigate('my-profile')}
+                              onClick={()=>navigate('/my-profile')}
                              >Profile</p>
                              <p 
                               className={profileOptions} 
-                              onClick={()=>navigate('my-appointments')}>Appointments</p>
+                              onClick={()=>navigate('/my-appointments')}>Appointments</p>
                              <p 
                               className={profileOptions} 
                               onClick={()=>setToken(false)}>Logout</p> 
