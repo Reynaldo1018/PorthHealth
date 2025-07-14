@@ -3,9 +3,9 @@ import { assets } from '../assets/assets'
 
 const MyProfile = () => {
   const [userData, setUserData] = useState({
-    name: "Edward Vincent",
+    name: "Heather Portela",
     image: assets.profile_pic,
-    email: 'edward@yahoo.com',
+    email: 'Heather@yahoo.com',
     phone: '407-333-5555',
     address: {
       line1: '110 citrus',
@@ -34,6 +34,31 @@ const MyProfile = () => {
           {
             isEdit
             ? <input type="text" value={userData.phone} onChange={e => setUserData(prev => ({ ...prev, phone: e.target.value }))}/>
+            : <p>{userData.phone}</p>
+          }
+          <p>Address: </p>
+          {
+            isEdit 
+            ? <p>
+              <input onChange={(e)=>setUserData(prev => ({...prev, address, line1: e.target.value}))} value={userData.address.line1} type="text"/>
+              <br/>
+               <input onChange={(e)=>setUserData(prev => ({...prev, address, line2: e.target.value}))} value={userData.address.line2} type="text"/>
+            </p>
+            : <p>
+              {userData.address.line1}
+              <br/>
+              {userData.address.line2}
+            </p>
+          }
+        </div>
+      </div>
+      <div>
+        <p>Basic Information</p>
+        <div>
+          <p>Gender:</p>
+          {
+            isEdit
+            ? <select name="" id=""></select>
             : <p>{userData.phone}</p>
           }
         </div>
