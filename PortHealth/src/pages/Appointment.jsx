@@ -21,17 +21,20 @@ const Appointment = () => {
 
   // Generate slots for the selected date
   const getAvailableSlots = (dateStr) => {
-    // Parse date string as local date
-    const [year, month, day] = dateStr.split('-').map(Number);
-    let currentDate = new Date(year, month - 1, day, 8, 0, 0, 0); // 8:00 AM local
-    let endTime = new Date(year, month - 1, day, 24, 0, 0, 0);    // midnight local
+    let currentDate = new Date(dateStr);
+    let endTime = new Date(dateStr);
+    endTime.setHours(24, 0, 0, 0);
+
+    // Default start time is 8:00 AM
+    currentDate.setHours(8, 0, 0, 0);
 
     const now = new Date();
     // Compare only the date part, not the full Date object
+    const selected = new Date(dateStr);
     const isToday =
-      year === now.getFullYear() &&
-      month - 1 === now.getMonth() &&
-      day === now.getDate();
+      selected.getFullYear() === now.getFullYear() &&
+      selected.getMonth() === now.getMonth() &&
+      selected.getDate() === now.getDate();
 
     if (isToday) {
       let nextHour = now.getHours();
