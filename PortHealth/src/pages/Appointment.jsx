@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import { assets } from '../assets/assets';
@@ -15,6 +15,8 @@ const Appointment = () => {
     const today = new Date();
     return today.toISOString().split('T')[0];
   });
+  const slotsContainerRef = useRef(null);
+  const [scrollIndex, setScrollIndex] = useState(0);
 
   // Find the doctor by ID
   const docInfo = doctors?.find(doc => doc._id === docId);
@@ -70,6 +72,17 @@ const Appointment = () => {
     getAvailableSlots(selectedDate);
   }, [selectedDate, docInfo]);
 
+  // Scroll handler
+  const scrollSlots = (direction) => {
+    if (!slotsContainerRef.current) return;
+    const slotWidth = 120; // px, adjust to match your slot width
+    slotsContainerRef.current.scrollBy({
+      left: direction === 'left' ? -slotWidth : slotWidth,
+      behavior: 'smooth'
+    });
+    setScrollIndex(prev => direction === 'left' ? Math.max(prev - 1, 0) : prev + 1);
+  };
+
   return docInfo && (
     <div>
      {/* doctor detailts */}
@@ -116,16 +129,40 @@ const Appointment = () => {
             className="border rounded px-2 py-1"
           />
         </div>
-        <div className='flex gap-3 items-center w-full overflow-x-scroll mt-4'>
-          {docSlots.length > 0 && docSlots[0].map((item, index) => (
-            <p
-              onClick={() => setSlotTime(item.time)}
-              className={`text-sm font-light flex-shrink-0 px-5 py-2 rounded-full cursor-pointer ${item.time === slotTime ? 'bg-primary text-white' : 'text-gray-400 border border-gray-300'}`}
-              key={index}
-            >
-              {item.time.toLowerCase()}
-            </p>
-          ))}
+        <div className="flex items-center gap-2 w-full">
+          {/* Left Arrow */}
+          <button
+            className="p-2 rounded-full bg-gray-200 hover:bg-primary hover:text-white transition"
+            onClick={() => scrollSlots('left')}
+            aria-label="Scroll left"
+          >
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          {/* Slots */}
+          <div
+            ref={slotsContainerRef}
+            className="flex gap-3 items-center w-full overflow-x-scroll mt-4 scrollbar-hide"
+            style={{ scrollBehavior: 'smooth' }}
+          >
+            {docSlots.length > 0 && docSlots[0].map((item, index) => (
+              <p
+                onClick={() => setSlotTime(item.time)}
+                className={`text-sm font-light flex-shrink-0 px-5 py-2 rounded-full cursor-pointer transition-all duration-200 ${item.time === slotTime ? 'bg-primary text-white' : 'text-gray-400 border border-gray-300'}`}
+                key={index}
+                style={{ minWidth: 100 }}
+              >
+                {item.time.toLowerCase()}
+              </p>
+            ))}
+          </div>
+          {/* Right Arrow */}
+          <button
+            className="p-2 rounded-full bg-gray-200 hover:bg-primary hover:text-white transition"
+            onClick={() => scrollSlots('right')}
+            aria-label="Scroll right"
+          >
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
         <button className='bg-primary text-white text-sm font-light px-14 py-3 rounded-full my-6'>Book an appointment</button>
       </div>
