@@ -26,7 +26,7 @@ const MyProfile = () => {
       }
       <hr />
       <div>
-        <p>CONTACT INFORMATION</p>
+        <p>CONTACT INFORMATION here</p>
         <div>
           <p>Email id:</p>
           <p>{userData.email}</p>
