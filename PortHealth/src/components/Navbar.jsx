@@ -5,7 +5,7 @@ import React, {useState} from 'react'
     
 const Navbar = () => {
     const navigate = useNavigate();
-    // const [showMenu, setShowMenu] = useState(false);
+     const [showMenu, setShowMenu] = useState(false);
     const [token, setToken] = useState(true)
        return (
     <div 
@@ -75,6 +75,7 @@ const Navbar = () => {
             </button>
 
             }
+            <img onClick={()=>setShowMenu(true)} className='w-6 md:hidden' src={assets.menu_icon} alt=''/>
            
         </div>
     </div>
